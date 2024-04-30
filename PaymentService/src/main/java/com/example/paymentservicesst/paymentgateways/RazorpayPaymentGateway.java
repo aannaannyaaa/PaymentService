@@ -22,16 +22,16 @@ public class RazorpayPaymentGateway implements PaymentGateway {
         JSONObject paymentLinkRequest = new JSONObject();
 
         //43.56 -> 43.56 * 100 => 4356
-        paymentLinkRequest.put("amount",1000);
+        paymentLinkRequest.put("amount",5000);
         paymentLinkRequest.put("currency","INR");
         //paymentLinkRequest.put("accept_partial",true);
         //paymentLinkRequest.put("first_min_partial_amount",100);
         paymentLinkRequest.put("expire_by",1714045778);
-        paymentLinkRequest.put("reference_id", "15423456");
-        paymentLinkRequest.put("description","Sample payment link for SST");
+        paymentLinkRequest.put("reference_id", "1234023");
+        paymentLinkRequest.put("description","Sample payment link");
         JSONObject customer = new JSONObject();
-        customer.put("name","+919000090000");
-        customer.put("contact","Deepak Kasera");
+        customer.put("name","+91123456789");
+        customer.put("contact","Ananya Srivastava");
         customer.put("email", email);
         paymentLinkRequest.put("customer",customer);
         JSONObject notify = new JSONObject();
@@ -42,7 +42,7 @@ public class RazorpayPaymentGateway implements PaymentGateway {
 //        JSONObject notes = new JSONObject();
 //        notes.put("policy_name","");
 //        paymentLinkRequest.put("notes",notes);
-        paymentLinkRequest.put("callback_url","https://scaler.com/");
+        paymentLinkRequest.put("callback_url","https://xyz.com/");
         paymentLinkRequest.put("callback_method","get");
 
         PaymentLink payment = razorpay.paymentLink.create(paymentLinkRequest);
